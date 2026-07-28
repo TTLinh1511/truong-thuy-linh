@@ -28,7 +28,7 @@ Tester (nhân viên kiểm thử phần mềm) là những người chịu trác
 |---|---|---|---|---|---|
 | 1 | **Giao diện trang chủ** | Truy cập `medaivn.com` và cuộn từ trên xuống dưới. | Hình ảnh hiển thị rõ nét, không bị méo, font chữ đồng nhất, các nút bấm xếp ngay ngắn. | Web load nhanh, hình ảnh hiển thị bình thường, giao diện mượt mà. | **Pass** (Đạt) |
 | 2 | **Chuyển hướng Menu** | Bấm vào một mục bất kỳ trên thanh Menu chính. | Web chuyển sang đúng trang tương ứng, đường link trên trình duyệt thay đổi đúng. | Chuyển đúng trang, không bị lỗi 404 (Không tìm thấy trang). | **Pass** (Đạt) |
-| 3 | **Chức năng Tìm kiếm** | Nhập ký tự đặc biệt (VD: `!@#$%`) vào ô tìm kiếm và ấn Enter. | Web hiển thị thông báo "Không tìm thấy dược liệu" rõ ràng, không bị sập (crash). | Web trả về trang trống hoặc có thông báo, hoạt động ổn định. | **Pass** (Đạt) |
+| 3 | **Chức năng Tìm kiếm** | Nhập ký tự đặc biệt (VD: `!@#$%`) vào ô tìm kiếm và ấn Enter. | Web hiển thị thông báo "Không tìm thấy dược liệu" rõ ràng, không bị sập (crash). | Web có thông báo đúng như mong đợi, hoạt động ổn định. | **Pass** (Đạt) |
 | 4 | **Logo trang chủ** | Khi đang ở một bài viết phụ, bấm vào Logo ở góc trái trên cùng. | Trình duyệt phải ngay lập tức chuyển hướng về lại Trang chủ. | Bấm vào logo thì web load lại về đúng trang chủ. | **Pass** (Đạt) |
 | 5 | **Nút tương tác / Form** | Kéo xuống cuối trang, tìm các nút bấm chuyển trang hoặc Form điền thông tin. | Nút bấm có thể click được, form cho phép nhập chữ. | Các nút chuyển trang hoạt động trơn tru, mượt mà | **Pass** (Đạt) |
 
@@ -37,10 +37,12 @@ Tester (nhân viên kiểm thử phần mềm) là những người chịu trác
 ## PHẦN 3: MINH CHỨNG THỰC HIỆN BÀI TẬP
 
 **1. Minh chứng đã tạo tài khoản GITHUB thành công:**
-![alt text](image.png)
+<img width="1913" height="967" alt="Screenshot 2026-07-28 102929" src="https://github.com/user-attachments/assets/b7d75265-0985-41e4-a3ec-18700781f57d" />
+
 
 **2. Minh chứng đã cài đặt thành công phần mềm VS Code:**
-![alt text](<Screenshot 2026-07-28 101123.png>)
+<img width="1918" height="1017" alt="Screenshot 2026-07-28 101123" src="https://github.com/user-attachments/assets/677af9ea-47d8-4ec0-a07b-95a2eb0f7ea3" />
+
 
 **3. Minh chứng thực thi test trên medaivn.com:**
-![alt text](image-1.png)
+<img width="1918" height="976" alt="Screenshot 2026-07-28 103254" src="https://github.com/user-attachments/assets/dfebc7ae-4f88-4560-9e1f-66c164b2674b" />
