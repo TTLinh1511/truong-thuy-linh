@@ -1,1 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List App</title>
 
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            background:#4f46e5;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+        }
+
+        .container{
+            width:420px;
+            background:white;
+            padding:25px;
+            border-radius:15px;
+            box-shadow:0 10px 30px rgba(0,0,0,.2);
+        }
+
+        h1{
+            text-align:center;
+            margin-bottom:20px;
+            color:#333;
+        }
+
+        .input-box{
+            display:flex;
+            gap:10px;
+        }
+
+        input{
+            flex:1;
+            padding:10px;
+            border:1px solid #ccc;
+            border-radius:8px;
+            outline:none;
+        }
+
+        button{
+            padding:10px 20px;
+            background:#4f46e5;
+            color:white;
+            border:none;
+            border-radius:8px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:#3730a3;
+        }
+
+        ul{
+            margin-top:20px;
+            list-style:none;
+        }
+
+        li{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:12px;
+            margin-bottom:10px;
+            background:#f3f4f6;
+            border-radius:8px;
+        }
+
+        li span{
+            flex:1;
+            cursor:pointer;
+        }
+
+        li.completed span{
+            text-decoration:line-through;
+            color:gray;
+        }
+
+        .delete{
+            background:#ef4444;
+            padding:6px 12px;
+            border-radius:6px;
+        }
+
+        .delete:hover{
+            background:#b91c1c;
+        }
+
+        .footer{
+            margin-top:15px;
+            text-align:center;
+            color:#666;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>📝 Todo List</h1>
+
+    <div class="input-box">
+        <input id="taskInput" placeholder="Nhập công việc...">
+        <button onclick="addTask()">Add</button>
+    </div>
+
+    <ul id="taskList"></ul>
+
+    <div class="footer">
+        <span id="count">0</span> công việc
+    </div>
+
+</div>
+
+<script>
+
+let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+function saveData(){
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
+function render(){
+
+    const list=document.getElementById("taskList");
+    list.innerHTML="";
+
+    tasks.forEach((task,index)=>{
+
+        const li=document.createElement("li");
+
+        if(task.done){
+            li.classList.add("completed");
+        }
+
+        li.innerHTML=`
+            <span onclick="toggleTask(${index})">
+                ${task.text}
+            </span>
+
+            <button class="delete"
+                onclick="deleteTask(${index})">
+                X
+            </button>
+        `;
+
+        list.appendChild(li);
+
+    });
+
+    document.getElementById("count").innerText=tasks.length;
+
+    saveData();
+}
+
+function addTask(){
+
+    const input=document.getElementById("taskInput");
+
+    const text=input.value.trim();
+
+    if(text===""){
+        alert("Vui lòng nhập công việc");
+        return;
+    }
+
+    tasks.push({
+        text:text,
+        done:false
+    });
+
+    input.value="";
+
+    render();
+
+}
+
+function toggleTask(index){
+
+    tasks[index].done=!tasks[index].done;
+
+    render();
+
+}
+
+function deleteTask(index){
+
+    tasks.splice(index,1);
+
+    render();
+
+}
+
+document.getElementById("taskInput")
+.addEventListener("keypress",function(e){
+
+    if(e.key==="Enter"){
+        addTask();
+    }
+
+});
+
+render();
+
+</script>
+
+</body>
+</html>
